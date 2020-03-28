@@ -45,25 +45,33 @@
     <div id="result"></div>
 </div>
 <script>
-    let num = prompt("Please write only number",0);
+    // let num = prompt("Please write only number",generationNumber());
+    let num = Math.round(Math.random()*100);
+
     check.onclick = function () {
+        console.log(num);
+        let div = document.createElement("div");
         if (!number.value)return;
         let message;
-        let br= document.createElement("br");
-        if (number.value>num){
-            message = "Your guess is to high!"
-        } else if(number.value<num){
-            message = "Your guess is to low!"
+        if (number.value > num){
+            message = "Your guess is to high! " + number.value;
+            div.style.backgroundColor="yellow";
+        } else if(number.value < num){
+            message = "Your guess is to low! " + number.value;
+            div.style.backgroundColor="yellow";
         } else {
-            message = "Awesome job, you got it!";
+            message = "Awesome job, you got it! " + number.value;
+            div.style.backgroundColor="green";
+            check.style.display="none";
         }
-        let div = document.createElement("div");
         div.append(message);
-        result.append(div);
+        result.prepend(div);
     };
     restart.onclick =function () {
+        check.style.display="inline";
         result.innerHTML="";
-        number.value=""
+        number.value="";
+        location.reload()
     }
 </script>
 </body>
