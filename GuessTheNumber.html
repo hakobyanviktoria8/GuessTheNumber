@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 5px;
+        }
+        body{
+            background-color: #dce5ed;
+        }
+        .container{
+            width: 400px;
+            min-height: 200px;
+            border: 1px solid;
+            padding: 10px;
+            margin: 10px auto;
+            text-align: center;
+            border-radius: 10px;
+            background-color: white;
+        }
+        input{
+            width: 90%;
+            margin-bottom: 10px;
+        }
+        #result{
+            font-size: 20px;
+        }
+        div{
+            border: 1px solid;
+            margin: 10px;
+        }
+        #result{
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>Guess The Namber</h1>
+    <input type="number" id="number">
+    <button id="check">Check</button>
+    <button id="restart">Restart</button>
+    <div id="result"></div>
+</div>
+<script>
+    let num = prompt("Please write only number",0);
+    check.onclick = function () {
+        if (!number.value)return;
+        let message;
+        let br= document.createElement("br");
+        if (number.value>num){
+            message = "Your guess is to high!"
+        } else if(number.value<num){
+            message = "Your guess is to low!"
+        } else {
+            message = "Awesome job, you got it!";
+        }
+        let div = document.createElement("div");
+        div.append(message);
+        result.append(div);
+    };
+    restart.onclick =function () {
+        result.innerHTML="";
+        number.value=""
+    }
+</script>
+</body>
+</html>
